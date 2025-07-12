@@ -1,0 +1,84 @@
+<!-- register.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration Form</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <style>
+    body {
+      background-color: blanchedalmond;
+    }
+    .container {
+      max-width: 600px;
+      margin: 50px auto;
+      background: pink;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    .password-strength {
+      color: #f00;
+      font-weight: bold;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2 class="text-center">Register for Our Service</h2>
+    <form id="registrationForm">
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" class="form-control" required>
+        <small class="password-strength" id="passwordStrength">Weak password</small>
+      </div>
+      <button type="submit" class="btn btn-primary">Register</button>
+    </form>
+  </div>
+
+  <script>
+    // Password strength check
+    document.getElementById('password').addEventListener('input', function () {
+      const password = this.value;
+      const strengthIndicator = document.getElementById('passwordStrength');
+
+      const hasUpperCase = /[A-Z]/.test(password);
+      const hasLowerCase = /[a-z]/.test(password);
+      const hasNumbers = /\d/.test(password);
+      const hasSpecialChars = /[!@#$%^&*(),.?":{}|<>]/.test(password);
+      const isLongEnough = password.length >= 8;
+
+      const isStrong = hasUpperCase && hasLowerCase && hasNumbers && hasSpecialChars && isLongEnough;
+
+      strengthIndicator.textContent = isStrong ? 'Strong password' : 'Weak password';
+      strengthIndicator.style.color = isStrong ? '#0f0' : '#f00';
+      strengthIndicator.style.display = 'inline';
+    });
+
+    document.getElementById('registrationForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const username = document.getElementById('username').value;
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+
+      // Save credentials
+      localStorage.setItem('userData', JSON.stringify({ username, email, password }));
+      alert('Registration successful!');
+      window.location.href = 'login.html';
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-10">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Waste Management App</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 10;
+      padding: 10;
+      background-image: url('https://cdn.dribbble.com/users/2090760/screenshots/5599559/media/4cac0c95122554a58c0cb7a525765424.gif');
+    }
+    header {
+      background-image: url('https://clipart-library.com/img/885073.gif');
+      color: #305170, rgb(10, 165, 132);
+      text-align: center;
+      padding: 0.5rem;
+    }
+    main {
+      padding: 2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 70vh;
+    }
+    #appContainer {
+      width: 100%;
+      max-width: 600px;
+      margin: auto;
+      background-image: url('https://blog.adobe.com/en/publish/2021/08/17/media_1faf68d6c67e20f5e45d65217e0d013dcfe537263.png?width=750&format=png&optimize=medium');
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    #L {
+      background-image: linear-gradient(to bottom right, #07119d, rgb(255, 255, 255));
+      border-bottom: 3px;
+      width: 50px;
+      height: 30px;
+      border-radius: 80px;
+    }
+    #R {
+      background-image: linear-gradient(to bottom right, #07119d, rgb(255, 255, 255));
+      border-bottom: 3px;
+      width: 60px;
+      height: 30px;
+      border-radius: 50px;
+    }
+    .icon-container {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 2rem;
+    }
+    .icon-container i {
+      font-size: 2rem;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+    .icon-container i:hover {
+      color: #555;
+    }
+  </style>
+</head>
+
+<body>
+  <form>
+    <header>
+      <button type="submit" id="L" formaction="Login.html">Login</button>
+      <button type="submit" id="R" formaction="Register.html">Register</button>
+      <h1>Waste Management Portal</h1>
+    </header>
+  </form>
+
+  <main>
+    <div id="appContainer">
+      <h2 style="text-align: center;">Explore Waste Management</h2>
+      <div class="icon-container">
+<i class="fas fa-user" onclick="window.open('workers.html', '_blank')"></i>
+        <i class="fas fa-trash" onclick="showDustbins()"></i>
+        <a href="trucks.html" target="_blank">
+        <i class="fas fa-truck"></i>
+</a>
+        <i class="fas fa-user" onclick="showWorkers()"></i>
+      </div>
+      <div id="infoContainer" style="margin-top: 1rem;"></div>
+    </div>
+  </main>
+
+  <script>
+  function showWorkers() {
+  document.getElementById('infoContainer').innerHTML = `
+    <p><strong>Waste Management Team</strong></p>
+    <ul>
+      <li><strong>Phone:</strong> +91-767687XXXX</li>
+      <li><strong>Email:</strong> support@wasteapp.org</li>
+      <li><strong>Supervisor:</strong> Miss. Payal Singh</li>
+    </ul>
+  `;
+}
+
+
+  function showDustbins() {
+    window.open('maps.jpg', '_blank');
+  }
+
+  function showTrucks() {
+    document.getElementById('infoContainer').innerHTML = `
+      <h3>Truck Details</h3>
+      <ul>
+        <li><strong>Truck 01</strong> - Driver: Ramesh - 🚚 Status: On Duty - <a href="https://maps.google.com" target="_blank">Track</a></li>
+        <li><strong>Truck 02</strong> - Driver: Sita - 🚛 Status: On Duty - <a href="https://maps.google.com" target="_blank">Track</a></li>
+        <li><strong>Truck 03</strong> - Driver: Mohan - 🅿️ Status: Off Duty</li>
+        <li><strong>Truck 04</strong> - Driver: Leela - 🚚 Status: On Duty - <a href="https://maps.google.com" target="_blank">Track</a></li>
+      </ul>
+      <button onclick="alert('Live GPS tracking is not available in demo.')" style="padding: 8px 15px; background-color: #0a9396; color: white; border: none; border-radius: 5px; margin-top: 10px;">Track Truck</button>
+    `;
+  }
+
+</script>
+
+</body>
+</html>

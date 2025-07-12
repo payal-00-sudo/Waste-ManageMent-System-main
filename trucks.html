@@ -1,0 +1,74 @@
+<!-- trucks.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Truck Information</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      padding: 20px;
+    }
+    h2 {
+      text-align: center;
+    }
+    .truck-card {
+      background-color: white;
+      padding: 15px;
+      border-radius: 10px;
+      margin: 15px auto;
+      max-width: 600px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    .truck-card h3 {
+      margin: 0;
+    }
+    .track-btn {
+      margin-top: 10px;
+      padding: 8px 12px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .track-btn:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <h2>Truck Details</h2>
+
+  <div class="truck-card">
+    <h3>Truck 01</h3>
+    <p>Driver: Ramesh<br>Status: On Duty</p>
+    <a href="https://www.google.com/maps?q=21.1458,79.0882" target="_blank">
+      <button class="track-btn">Track Location</button>
+    </a>
+  </div>
+
+  <div class="truck-card">
+    <h3>Truck 02</h3>
+    <p>Driver: Sita<br>Status: On Duty</p>
+    <a href="https://www.google.com/maps?q=28.7041,77.1025" target="_blank">
+      <button class="track-btn">Track Location</button>
+    </a>
+  </div>
+
+  <div class="truck-card">
+    <h3>Truck 03</h3>
+    <p>Driver: Mohan<br>Status: Off Duty</p>
+  </div>
+
+  <div class="truck-card">
+    <h3>Truck 04</h3>
+    <p>Driver: Leela<br>Status: On Duty</p>
+    <a href="https://www.google.com/maps?q=19.0760,72.8777" target="_blank">
+      <button class="track-btn">Track Location</button>
+    </a>
+  </div>
+</body>
+</html>

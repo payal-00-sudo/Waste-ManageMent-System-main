@@ -1,0 +1,71 @@
+<!-- login.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Forest Login</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="form-container">
+      <h1>Welcome to the Forest</h1>
+      <form id="login-form">
+        <input type="text" id="username" placeholder="Username or Email" required />
+        <br />
+        <input type="password" id="password" placeholder="Password" required />
+        <button type="submit" class="button button1">Login</button>
+      </form>
+      <div class="links">
+        <a href="#">Forgot Password?</a>
+        <span>|</span>
+        <a href="register.html">Register</a>
+      </div>
+      <div class="alternative-login-options">
+        <p>Or login with:</p>
+        <div class="social-login-icons">
+          <button class="button button2">Google</button><br />
+          <button class="button button2">Facebook</button>
+        </div>
+      </div>
+    </div>
+    <div class="background"></div>
+  </div>
+
+  <script>
+  const defaultUsers = [
+    { username: 'admin', email: 'admin@gmail.com', password: 'admin123' },
+    { username: 'forest', email: 'forest@wild.in', password: 'treepass' },
+    { username: 'Payal', email: 'Payal@123.in', password: 'payal123' }
+  ];
+
+  document.getElementById('login-form').addEventListener('submit', function (event) {
+    event.preventDefault();
+
+    const usernameInput = document.getElementById('username').value;
+    const passwordInput = document.getElementById('password').value;
+
+    // Get users from localStorage
+    const localUsers = JSON.parse(localStorage.getItem('users')) || [];
+
+    // Combine default and local users
+    const allUsers = [...defaultUsers, ...localUsers];
+
+    // Check if entered credentials match any user
+    const found = allUsers.find(user =>
+      (user.username === usernameInput || user.email === usernameInput) &&
+      user.password === passwordInput
+    );
+
+    if (found) {
+      alert('Login successful!');
+      window.location.href = 'waste.html';
+    } else {
+      alert('Invalid credentials.');
+    }
+  });
+</script>
+
+</body>
+</html>
